@@ -1,0 +1,10 @@
+@import url(./__image/grid-item__image.css);
+@import url(./__info/grid-item__info.css);
+@import url(./__name/grid-item__name.css);
+@import url(./__like/grid-item__like.css);
+
+.grid-item {
+    list-style: none;
+    background-color: white;
+    border-radius: 10px;
+}
