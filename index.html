@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./pages/index.css">
+        <title>Mesto</title>
+    </head>
+    <body class="container">
+        <div class="page">
+            <header class="header">
+                <img src="./images/logo.svg" alt="Логотип Mesto" class="header__logo">
+            </header>
+            <main class="content">
+                <section class="profile">
+                    <div class="profile__container">
+                        <img src="./images/image.jpg" alt="Аватар" class="profile__avatar">
+                        <div class="profile__info">
+                            <div class="profile__text">
+                                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                                <p class="profile__occupation">Исследователь океана</p>
+                            </div>
+                            <button type="button" class="profile__edit-button"></button>
+                        </div>
+                    </div>
+                    <button type="button" class="profile__add-button"></button>
+                </section>
+                <section class="elements">
+                    <ul class="grid-items">
+                        <li class="grid-item">
+                            <img src="./images/karachaevsk.jpg" alt="фото" class="grid-item__image">
+                            <div class="grid-item__info">
+                                <h3 class="grid-item__name">Карачаевск</h3>
+                                <img src="./images/like.svg" alt="like" class="grid-item__like">
+                            </div>
+                        </li>
+                        <li class="grid-item">
+                            <img src="./images/elbrus.jpg" alt="фото" class="grid-item__image">
+                            <div class="grid-item__info">
+                                <h3 class="grid-item__name">Гора Эльбрус</h3>
+                                <img src="./images/like.svg" alt="like" class="grid-item__like">
+                            </div>
+                        </li>
+                        <li class="grid-item">
+                            <img src="./images/dombay.jpg" alt="фото" class="grid-item__image">
+                            <div class="grid-item__info">
+                                <h3 class="grid-item__name">Домбай</h3>
+                                <img src="./images/like.svg" alt="like" class="grid-item__like">
+                            </div>
+                        </li>
+                        <li class="grid-item">
+                            <img src="./images/city.jpg" alt="фото" class="grid-item__image">
+                            <div class="grid-item__info">
+                                <h3 class="grid-item__name">Город</h3>
+                                <img src="./images/like.svg" alt="like" class="grid-item__like">
+                            </div>
+                        </li>
+                        <li class="grid-item">
+                            <img src="./images/forest.jpg" alt="фото" class="grid-item__image">
+                            <div class="grid-item__info">
+                                <h3 class="grid-item__name">Лес</h3>
+                                <img src="./images/like.svg" alt="like" class="grid-item__like">
+                            </div>
+                        </li>
+                        <li class="grid-item">
+                            <img src="./images/Church.jpg" alt="фото" class="grid-item__image">
+                            <div class="grid-item__info">
+                                <h3 class="grid-item__name">Храм</h3>
+                                <img src="./images/like.svg" alt="like" class="grid-item__like">
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+            <footer class="footer">
+                <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+            </footer>
+        </div>
+        <div class="popup popup_opened">
+            <div class="popup__container">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__form" name="editProfile">
+                    <input type="text" class="popup__input popup__input_profile_name" placeholder="Имя" minlength="2" required>
+                    <input type="text" class="popup__input popup__input_profile_occupation" placeholder="Вид деятельности" minlength="2" required>
+                    <input type="submit" class="popup__btn-save" value="Сохранить">
+                    <button type="reset" class="popup__btn-close"></button>
+                </form>
+                
+            </div>
+        </div>
+        <script src="./scripts/popup.js"></script>
+    </body>
+</html>
