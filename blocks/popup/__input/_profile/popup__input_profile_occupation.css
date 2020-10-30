@@ -1,9 +1,0 @@
-.popup__input_profile_occupation {
-    margin-bottom: 48px;
-}
-
-@media screen and (max-width: 767px) {
-    .popup__input_profile_occupation {
-        margin-bottom: 45px;
-    }   
-}
