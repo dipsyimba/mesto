@@ -13,6 +13,10 @@
     outline: none;
 }
 
+.popup__btn-close:hover {
+    opacity: 0.6;
+}
+
 @media screen and (max-width: 767px) {
     .popup__btn-close {
         width: 26px;

@@ -12,7 +12,7 @@
     .profile__occupation {
         font-size: 14px;
         line-height: 17px;
-        max-width: 100%;
+        max-width: 250px;
         text-align: center;
     }
 }
