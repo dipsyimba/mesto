@@ -27,48 +27,7 @@
                 </section>
                 <section class="elements">
                     <ul class="grid-items">
-                        <li class="grid-item">
-                            <img src="./images/karachaevsk.jpg" alt="фото" class="grid-item__image">
-                            <div class="grid-item__info">
-                                <h3 class="grid-item__name">Карачаевск</h3>
-                                <button type="button" class="grid-item__like"></button>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <img src="./images/elbrus.jpg" alt="фото" class="grid-item__image">
-                            <div class="grid-item__info">
-                                <h3 class="grid-item__name">Гора Эльбрус</h3>
-                                <button type="button" class="grid-item__like"></button>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <img src="./images/dombay.jpg" alt="фото" class="grid-item__image">
-                            <div class="grid-item__info">
-                                <h3 class="grid-item__name">Домбай</h3>
-                                <button type="button" class="grid-item__like"></button>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <img src="./images/city.jpg" alt="фото" class="grid-item__image">
-                            <div class="grid-item__info">
-                                <h3 class="grid-item__name">Город</h3>
-                                <button type="button" class="grid-item__like"></button>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <img src="./images/forest.jpg" alt="фото" class="grid-item__image">
-                            <div class="grid-item__info">
-                                <h3 class="grid-item__name">Лес</h3>
-                                <button type="button" class="grid-item__like"></button>
-                            </div>
-                        </li>
-                        <li class="grid-item">
-                            <img src="./images/Church.jpg" alt="фото" class="grid-item__image">
-                            <div class="grid-item__info">
-                                <h3 class="grid-item__name">Храм</h3>
-                                <button type="button" class="grid-item__like"></button>
-                            </div>
-                        </li>
+                        
                     </ul>
                 </section>
             </main>
@@ -76,10 +35,10 @@
                 <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
             </footer>
         </div>
-        <div class="popup">
+        <div class="popup popup_profile">
             <div class="popup__container">
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <form class="popup__form" name="edit-profile">
+                <form class="popup__form popup__form_type_profile" name="edit-profile">
                     <input type="text" class="popup__input popup__input_profile_name" name="name" placeholder="Имя" minlength="2" required>
                     <input type="text" class="popup__input popup__input_profile_occupation" name="occupation" placeholder="Вид деятельности" minlength="2" required>
                     <input type="submit" class="popup__btn-save" name="submit" value="Сохранить">
@@ -88,6 +47,40 @@
                 
             </div>
         </div>
-        <script src="./scripts/popup.js"></script>
+
+        <div class="popup popup_img">
+            <div class="popup__img-container">
+                <button type="button" class="popup__btn-close"></button>
+                <img src="./" class="popup__image" alt="Фото">
+                <p class="popup__img-title"></p>
+            </div>
+        </div>
+
+        <div class="popup popup__add">
+            <div class="popup__container">
+                <h3 class="popup__title">Новое место</h3>
+                <form class="popup__form popup__form_type_create" name="create-card">
+                    <input type="text" class="popup__input popup__input_add_name" name="addName" placeholder="Название" minlength="2" required>
+                    <input type="text" class="popup__input popup__input_add_link" name="link" placeholder="Ссылка на картинку" minlength="2" required>
+                    <input type="submit" class="popup__btn-create" name="create" value="Создать">
+                    <button type="button" class="popup__btn-close"></button>
+                </form>
+            </div>
+        </div>
+
+        <template id="card">
+            <li class="grid-item">
+                <img src="./images/karachaevsk.jpg" alt="фото" class="grid-item__image">
+                <div class="grid-item__info">
+                    <h3 class="grid-item__name">Карачаевск</h3>
+                    <button type="button" class="grid-item__like"></button>
+                </div>
+                <button type="button" class="grid-item__trash">
+                    <img src="./images/remove.svg" alt="Корзина">
+                </button> 
+            </li>
+        </template>
+
+        <script src="./scripts/script.js"></script>
     </body>
 </html>
