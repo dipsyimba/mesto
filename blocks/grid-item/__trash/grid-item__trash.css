@@ -7,3 +7,8 @@
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
 }
+
+.grid-item__trash:hover {
+    opacity: 0.6;
+    transition: linear 0.5s;
+}

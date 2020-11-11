@@ -2,6 +2,7 @@
 @import url(./__info/grid-item__info.css);
 @import url(./__name/grid-item__name.css);
 @import url(./__like/grid-item__like.css);
+@import url(./__like/_active/grid-item__like_active.css);
 @import url(./__trash/grid-item__trash.css);
 
 .grid-item {
