@@ -40,11 +40,11 @@
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <form class="popup__form popup__form_type_profile" name="edit-profile">
                     <label class="popup__field">
-                        <input type="text" class="popup__input popup__input_profile_name" id="name-input" name="name" placeholder="Имя" minlength="2" maxlength="40" required novalidate>
+                        <input type="text" class="popup__input popup__input_profile_name" id="name-input" name="name" placeholder="Имя" minlength="2" maxlength="40" required>
                         <span class="popup__input-error" id="name-input-error"></span>
                     </label>
                     <label class="popup__field">
-                        <input type="text" class="popup__input popup__input_profile_occupation" id="occupation-input" name="occupation" placeholder="Вид деятельности" minlength="2" maxlength="200" required novalidate>
+                        <input type="text" class="popup__input popup__input_profile_occupation" id="occupation-input" name="occupation" placeholder="Вид деятельности" minlength="2" maxlength="200" required>
                         <span class="popup__input-error" id="occupation-input-error"></span>
                     </label>
                     <button type="submit" class="popup__button popup__btn-save" name="submit" value="Сохранить">Сохранить</button>
@@ -72,7 +72,7 @@
                         <span class="popup__input-error" id="title-input-error"></span>
                     </label>
                     <label class="popup__field">
-                    <input type="url" class="popup__input popup__input_add_link" id="link-input" name="link" placeholder="Ссылка на картинку" type="url" required>
+                    <input type="url" class="popup__input popup__input_add_link" id="link-input" name="link" placeholder="Ссылка на картинку" required>
                     <span class="popup__input-error popup__input-error_visible" id="link-input-error"></span>
                     </label>
                     <button type="submit" class="popup__button popup__btn-create" name="create" value="Создать">Создать</button>
