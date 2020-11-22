@@ -1,4 +1,3 @@
-
 const btnEditProfile = document.querySelector('.profile__edit-button');
 const closeButtons = document.querySelectorAll('.popup__btn-close');
 const nameInput = document.querySelector(".popup__input_profile_name");
@@ -18,6 +17,7 @@ const addLink = document.querySelector('.popup__input_add_link');
 const container = document.querySelector('.grid-items');
 const popupImg = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__img-title');
+
 
 const initialCards = [
     {
@@ -67,15 +67,47 @@ function deleteCard(evt) {
 
 function openPopup(elem) {
     elem.classList.add('popup_opened');
+    document.addEventListener('keydown', keyEsc);
+    elem.addEventListener('mousedown', popupMousedown);
+}
+
+function popupMousedown(evt) {
+    const clickPopup = evt.target.closest('.popup');
+    if(evt.target.classList.contains('popup')) {
+        closePopup(clickPopup);
+    }
+}
+
+function keyEsc(evt) {
+    if(evt.key === 'Escape') {
+        isActivePopup();
+    }
+}
+
+function isActivePopup(evt) {
+    const activePopup = document.querySelector('.popup_opened');
+    if(activePopup) {
+        closePopup(activePopup);
+    }
 }
 
 function closePopup(elem) {
+    const inputs = elem.querySelectorAll('.popup__input');
     elem.classList.remove('popup_opened');
+    addName.value = '';
+    addLink.value = '';
+    inputs.forEach((input) => {
+        hideError(input, validationConfig);
+    });
+    document.removeEventListener('keydown', keyEsc);
+    elem.removeEventListener('mousedown', popupMousedown);
 }
 
 function openEditProfile() {
     nameInput.value = name.textContent;
     jobInput.value = occupation.textContent;
+
+    enableValidation(validationConfig);
     openPopup(profilePopup);
 }
 
@@ -87,10 +119,6 @@ function showImage(title, link) {
     popupImg.src = link; 
     popupName.textContent = title;
     openPopup(imagePopup);
-}
-
-function closeEditProfile() {
-    closePopup(profilePopup);
 }
 
 function formCreate(evt) {
@@ -114,18 +142,23 @@ function addNewCard(newCard) {
     container.prepend(newCard);
 }
 
-
 initialCards.forEach(el => addNewCard(createCard(el.name, el.link)));
 
 btnEditProfile.addEventListener("click", openEditProfile);
-btnAddCard.addEventListener("click", (evt) => openPopup(createCardPopup));
+btnAddCard.addEventListener("click", (evt) => {
+    openPopup(createCardPopup);
+    enableValidation(validationConfig);
+});
 formElement.addEventListener('submit', formSubmitHandler);
 formAdd.addEventListener('submit', formCreate);
 closeButtons.forEach(element => {
     element.addEventListener("click", (evt) => {
         closePopup(evt.target.closest(".popup"));
-    })
+    });
 });
+
+
+
 
 
 
