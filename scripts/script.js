@@ -54,7 +54,7 @@ function createCard(title, link) {
     newCard.querySelector('.grid-item__name').textContent = title;
     newCard.querySelector('.grid-item__trash').addEventListener("click", deleteCard);
     cardImage.addEventListener("click", () => showImage(title, link));
-    newCard.querySelector('.grid-item__like').addEventListener("click", like)
+    newCard.querySelector('.grid-item__like').addEventListener("click", handleLikeButton)
     return newCard;    
 }
 
@@ -80,11 +80,11 @@ function popupMousedown(evt) {
 
 function keyEsc(evt) {
     if(evt.key === 'Escape') {
-        isActivePopup();
+        closeActivePopup();
     }
 }
 
-function isActivePopup(evt) {
+function closeActivePopup(evt) {
     const activePopup = document.querySelector('.popup_opened');
     if(activePopup) {
         closePopup(activePopup);
@@ -99,12 +99,10 @@ function closePopup(elem) {
 }
 
 function cleanInputErrors(elem) {
-    if(!elem.closest('popup_img')){
-        const inputs = elem.querySelectorAll('.popup__input');
-        inputs.forEach((input) => {
-            hideError(input, validationConfig);
-        });
-    }
+    const inputs = elem.querySelectorAll('.popup__input');
+    inputs.forEach((input) => {
+        hideError(input, validationConfig);
+    });
 }
 
 function openEditProfile() {
@@ -113,7 +111,7 @@ function openEditProfile() {
     openPopup(profilePopup);
 }
 
-function like(evt) {
+function handleLikeButton(evt) {
     evt.target.classList.toggle('grid-item__like_active');
 }
 
@@ -144,7 +142,7 @@ function addNewCard(newCard) {
     container.prepend(newCard);
 }
 
-function buttonState(popup) {
+function setBtnState(popup) {
     const activeForm = popup.querySelector('.popup__form');
     const submitButton = activeForm.querySelector(validationConfig.submitButtonSelector);
     setButtonState(submitButton, activeForm.checkValidity(), validationConfig);
@@ -154,20 +152,21 @@ initialCards.forEach(el => addNewCard(createCard(el.name, el.link)));
 
 btnEditProfile.addEventListener("click", () => {
     openEditProfile();
-    buttonState(profilePopup);
+    setBtnState(profilePopup);
 });
 btnAddCard.addEventListener("click", () => {
     addName.value = '';
     addLink.value = '';
     openPopup(createCardPopup);
-    buttonState(createCardPopup);
+    setBtnState(createCardPopup);
 });
 formElement.addEventListener('submit', formSubmitHandler);
 formAdd.addEventListener('submit', formCreate);
 closeButtons.forEach(element => {
     element.addEventListener("click", (evt) => {
-        closePopup(evt.target.closest(".popup"));
-        cleanInputErrors(evt.target.closest(".popup"));
+        const popup = evt.target.closest(".popup");
+        closePopup(popup);
+        cleanInputErrors(popup);
     });
 });
 
