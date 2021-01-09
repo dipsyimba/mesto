@@ -50,8 +50,9 @@ export default class FormValidator {
             const error = this._form.querySelector(`#${input.id}-error`);
             error.textContent = '';
             input.classList.remove(this._config.inputErrorClass);
-            this._setButtonState(this._form.checkValidity());
         });
+        
+        this._setButtonState(this._form.checkValidity());
     }
 
     enableValidation = () => {
