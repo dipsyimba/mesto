@@ -1,36 +1,35 @@
 export default class Card {
-    constructor(data, selector, openPopupImage) {
+    constructor({data, selector, handleCardClick}) {
         this._selector = selector;
-        this._name = data.name;
+        this._name = data.title;
         this._link = data.link;
         this._cardTemplate = document.querySelector(this._selector);
-        this._openPopupImage = openPopupImage;
+        this._handleCardClick = handleCardClick;
     }
 
-    _getTemplate = () => {
+    _getTemplate() {
         return this._cardTemplate.content.cloneNode(true);
     }
 
-    _deleteCard = (evt) => {
+    _deleteCard(evt) {
         evt.target.closest('.grid-item').remove();
     }
 
-    _handleLikeButton = (evt) => {
+    _handleLikeButton(evt) {
         evt.target.classList.toggle('grid-item__like_active');
     }
 
-    _setEventListeners = () => {
+    _setEventListeners() {
         this._element.querySelector('.grid-item__like').addEventListener('click', this._handleLikeButton);
         this._element.querySelector('.grid-item__trash').addEventListener('click', this._deleteCard);
-        this._element.querySelector('.grid-item__image').addEventListener('click', () => {
-            this._openPopupImage(this._name, this._link);
-        });
+        this._imageItem.addEventListener('click', this._handleCardClick);
     }
 
-    createCard = () => {
+    createCard() {
         this._element = this._getTemplate();
-        this._element.querySelector('.grid-item__image').alt = this._name;
-        this._element.querySelector('.grid-item__image').src = this._link;
+        this._imageItem = this._element.querySelector('.grid-item__image');
+        this._imageItem.alt = this._name;
+        this._imageItem.src = this._link;
         this._element.querySelector('.grid-item__name').textContent = this._name;
         this._setEventListeners();
         return this._element;
