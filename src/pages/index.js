@@ -77,6 +77,8 @@ function openCreateCardPopup() {
     createPopupWithForm.open();
 }
 
+profilePopupWithForm.setEventListeners();
+createPopupWithForm.setEventListeners();
 btnEditProfile.addEventListener("click", openEditProfilePopup);
 btnAddCard.addEventListener("click", openCreateCardPopup);
 profileForm.enableValidation();
